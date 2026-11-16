@@ -344,10 +344,11 @@ function actualizarContador() {
     Math.floor((diferencia % 60000) / 1000);
 }
 
+
 actualizarContador();
 setInterval(actualizarContador, 1000);
-</script>
-  function abrirInvitacion() {
+
+function abrirInvitacion() {
   const sobre = document.getElementById("sobreInicial");
   const contenido = document.getElementById("contenidoInvitacion");
 
@@ -358,6 +359,8 @@ setInterval(actualizarContador, 1000);
     contenido.style.display = "block";
   }, 800);
 }
+
+</script>
 
 </body>
 </html>
