@@ -1,0 +1,266 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Invitación especial</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Georgia, serif;
+      background: #f8f5f0;
+      color: #51483f;
+      text-align: center;
+    }
+
+    .portada {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 35px 20px;
+      background: linear-gradient(160deg, #f8f1e9, #e9ded2);
+    }
+
+    .sobre {
+      max-width: 520px;
+      width: 100%;
+      padding: 45px 25px;
+      border: 1px solid #c6ad91;
+      background: rgba(255,255,255,0.55);
+      animation: aparecer 1.2s ease;
+    }
+
+    .detalle {
+      font-size: 13px;
+      letter-spacing: 4px;
+      text-transform: uppercase;
+      color: #9b8067;
+      margin-bottom: 25px;
+    }
+
+    h1 {
+      font-size: clamp(38px, 9vw, 58px);
+      font-weight: normal;
+      margin-bottom: 18px;
+    }
+
+    .subtitulo {
+      font-size: 18px;
+      line-height: 1.7;
+      margin-bottom: 30px;
+    }
+
+    .fecha {
+      font-size: 19px;
+      line-height: 1.8;
+      margin: 25px 0;
+    }
+
+    .seccion {
+      padding: 65px 20px;
+      max-width: 650px;
+      margin: auto;
+    }
+
+    h2 {
+      font-size: 30px;
+      font-weight: normal;
+      margin-bottom: 20px;
+    }
+
+    .contador {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin: 30px 0;
+    }
+
+    .unidad {
+      background: #eee4d9;
+      padding: 15px 10px;
+      min-width: 65px;
+      border-radius: 8px;
+    }
+
+    .unidad strong {
+      display: block;
+      font-size: 25px;
+      font-weight: normal;
+    }
+
+    .unidad span {
+      font-size: 11px;
+      text-transform: uppercase;
+    }
+
+    .boton {
+      display: inline-block;
+      padding: 14px 25px;
+      margin: 10px 5px;
+      background: #8b7460;
+      color: white;
+      text-decoration: none;
+      border-radius: 30px;
+      font-family: Arial, sans-serif;
+      font-size: 14px;
+      transition: 0.3s;
+    }
+
+    .boton:hover {
+      background: #665342;
+      transform: translateY(-2px);
+    }
+
+    .galeria {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 25px;
+    }
+
+    .foto {
+      min-height: 150px;
+      border-radius: 8px;
+      background: #e9ded2;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #8b7460;
+      font-family: Arial, sans-serif;
+      font-size: 13px;
+    }
+
+    footer {
+      padding: 30px;
+      background: #eee4d9;
+      font-size: 14px;
+    }
+
+    @keyframes aparecer {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+
+<body>
+
+  <section class="portada">
+    <div class="sobre">
+      <p class="detalle">Una celebración especial</p>
+      <h1>¡Baby Shower!</h1>
+      <p class="subtitulo">
+        Estamos felices de compartir contigo
+        la dulce espera de nuestro bebé.
+      </p>
+      <div class="fecha">
+        Sábado 19 de diciembre<br>
+        4:00 p. m.
+      </div>
+      <p>¡Nos encantará contar contigo!</p>
+    </div>
+  </section>
+
+  <section class="seccion">
+    <h2>La cuenta regresiva</h2>
+    <p>Falta muy poco para celebrar juntos.</p>
+
+    <div class="contador">
+      <div class="unidad">
+        <strong id="dias">0</strong>
+        <span>Días</span>
+      </div>
+      <div class="unidad">
+        <strong id="horas">0</strong>
+        <span>Horas</span>
+      </div>
+      <div class="unidad">
+        <strong id="minutos">0</strong>
+        <span>Minutos</span>
+      </div>
+      <div class="unidad">
+        <strong id="segundos">0</strong>
+        <span>Segundos</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="seccion">
+    <h2>Un recuerdo especial</h2>
+    <p>Pronto compartiremos contigo algunas fotos de esta etapa tan bonita.</p>
+
+    <div class="galeria">
+      <div class="foto">Foto 1</div>
+      <div class="foto">Foto 2</div>
+      <div class="foto">Foto 3</div>
+      <div class="foto">Foto 4</div>
+    </div>
+  </section>
+
+  <section class="seccion">
+    <h2>¿Nos acompañas?</h2>
+    <p>Confirma tu asistencia para poder esperarte.</p>
+
+    <a class="boton" id="confirmar" href="#" target="_blank">
+      Confirmar asistencia
+    </a>
+
+    <h2 style="margin-top:45px;">¿Cómo llegar?</h2>
+    <p>Pronto encontrarás aquí la ubicación del evento.</p>
+
+    <a class="boton" id="ubicacion" href="#" target="_blank">
+      Ver ubicación
+    </a>
+  </section>
+
+  <footer>
+    Hecho con mucho cariño ❤️
+  </footer>
+
+  <script>
+    // CUENTA REGRESIVA
+    const fechaEvento = new Date("2026-12-19T16:00:00-05:00").getTime();
+
+    function actualizarContador() {
+      const diferencia = fechaEvento - Date.now();
+
+      if (diferencia <= 0) {
+        document.querySelector(".contador").innerHTML = "¡Llegó el gran día!";
+        return;
+      }
+
+      document.getElementById("dias").textContent =
+        Math.floor(diferencia / 86400000);
+
+      document.getElementById("horas").textContent =
+        Math.floor((diferencia % 86400000) / 3600000);
+
+      document.getElementById("minutos").textContent =
+        Math.floor((diferencia % 3600000) / 60000);
+
+      document.getElementById("segundos").textContent =
+        Math.floor((diferencia % 60000) / 1000);
+    }
+
+    actualizarContador();
+    setInterval(actualizarContador, 1000);
+
+    // PERSONALIZAREMOS ESTOS ENLACES DESPUÉS
+    document.getElementById("confirmar").href =
+      "https://wa.me/51999999999?text=Hola,%20confirmo%20mi%20asistencia";
+
+    document.getElementById("ubicacion").href =
+      "https://www.google.com/maps";
+  </script>
+
+</body>
+</html>
