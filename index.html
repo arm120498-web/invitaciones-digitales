@@ -397,7 +397,30 @@ footer {
   font-size: 14px;
   color: #806b54;
 }
+.indicador-scroll {
+  margin-top: 35px;
+  color: #a58b68;
+  font-family: Arial, sans-serif;
+  font-size: 10px;
+  letter-spacing: 2px;
+  animation: entrada 1.5s ease;
+}
 
+.indicador-scroll div {
+  font-size: 32px;
+  line-height: 1;
+  margin-top: 8px;
+  animation: bajar 1.4s ease-in-out infinite;
+}
+
+@keyframes bajar {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(8px);
+  }
+}
 </style>
 </head>
 
@@ -438,6 +461,10 @@ footer {
       SÁBADO 19 DE DICIEMBRE<br>
       4:00 P. M.
     </p>
+    <div class="indicador-scroll">
+  <span>DESLIZA PARA DESCUBRIR MÁS</span>
+  <div>⌄</div>
+</div>
   </div>
 </section>
 
