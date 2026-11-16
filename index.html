@@ -83,7 +83,8 @@ body {
   margin: auto;
   letter-spacing: 0.3px;
 }
-  .nombre-bebe {
+
+.nombre-bebe {
   margin-top: 25px;
   font-size: 38px;
   font-style: italic;
@@ -181,10 +182,17 @@ footer {
 }
 
 @media(max-width: 390px) {
-  .contador { gap: 5px; }
-  .unidad { min-width: 58px; padding: 12px 5px; }
+  .contador {
+    gap: 5px;
+  }
+
+  .unidad {
+    min-width: 58px;
+    padding: 12px 5px;
+  }
 }
-  #sobreInicial {
+
+#sobreInicial {
   position: fixed;
   inset: 0;
   z-index: 1000;
@@ -280,49 +288,6 @@ footer {
   opacity: 0;
   pointer-events: none;
 }
-.video-seccion video {
-  display: block;
-  width: 100%;
-  max-width: 650px;
-  margin: 25px auto 0;
-  border-radius: 14px;
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
-}
-
-.video-seccion p {
-  margin-bottom: 20px;
-}
-
-.galeria > p {
-  margin-bottom: 30px;
-}
-
-.fotos {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 14px;
-  margin-top: 25px;
-}
-
-.fotos img {
-  display: block;
-  width: 100%;
-  aspect-ratio: 4 / 5;
-  height: auto;
-  object-fit: cover;
-  border-radius: 12px;
-  border: 1px solid #d8c7aa;
-  box-shadow: 0 8px 20px rgba(85, 75, 64, 0.10);
-  transition: transform 0.3s ease;
-}
-
-
-@media(max-width: 390px) {
-  .fotos img {
-    height: 170px;
-  }
-
-}
 
 /* SECCIÓN DE REGALOS */
 
@@ -404,6 +369,9 @@ footer {
   font-size: 14px;
   color: #806b54;
 }
+
+/* INDICADOR PARA DESLIZAR */
+
 .indicador-scroll {
   margin-top: 35px;
   color: #a58b68;
@@ -446,7 +414,6 @@ footer {
 
 <div id="contenidoInvitacion">
 
-
 <section class="portada">
   <div class="marco">
     <p class="etiqueta">Una celebración de amor</p>
@@ -457,34 +424,25 @@ footer {
 
     <div class="linea"></div>
 
-   <p class="frase">
-  Nuestra historia ahora tiene un nuevo capítulo
-</p>
+    <p class="frase">
+      Nuestra historia ahora tiene un nuevo capítulo
+    </p>
 
-<p class="nombre-bebe">Isaías</p>
+    <p class="nombre-bebe">Isaías</p>
 
-<div class="linea"></div>
+    <div class="linea"></div>
 
     <p class="evento">
       BABY SHOWER<br>
       SÁBADO 19 DE DICIEMBRE<br>
       4:00 P. M.
     </p>
+
     <div class="indicador-scroll">
-  <span>DESLIZA PARA DESCUBRIR MÁS</span>
-  <div>⌄</div>
-</div>
+      <span>DESLIZA PARA DESCUBRIR MÁS</span>
+      <div>⌄</div>
+    </div>
   </div>
-</section>
-
-<section class="seccion video-seccion">
-  <h2>Un momento muy especial</h2>
-  <p>Queremos compartir contigo cómo comenzó esta nueva aventura.</p>
-
-  <video controls playsinline preload="metadata">
-    <source src="anuncio.mp4" type="video/mp4">
-    Tu navegador no puede reproducir este video.
-  </video>
 </section>
 
 <section class="seccion">
@@ -495,16 +453,7 @@ footer {
     esta felicidad contigo.
   </p>
 </section>
-  <section class="seccion galeria">
-  <h2>Nuestra pequeña historia</h2>
-  <p>Momentos que guardamos en el corazón.</p>
 
-<div class="fotos">
-  <img src="foto%201.PNG" alt="Alejandro y Nikole">
-  <img src="foto%202.jpeg" alt="Un momento especial">
-</div>
-</section>
-  
 <section class="seccion regalos">
   <h2>Un detalle para nuestro bebé</h2>
 
@@ -553,7 +502,7 @@ footer {
   </div>
 </section>
 
-  <section class="seccion">
+<section class="seccion">
   <h2>¿Dónde nos encontramos?</h2>
   <p>
     Av. Santa Catalina 210<br>
@@ -568,7 +517,8 @@ footer {
     VER UBICACIÓN EN MAPS
   </a>
 </section>
-  <section class="seccion">
+
+<section class="seccion">
   <h2>¿Nos acompañas?</h2>
   <p>
     Nos haría mucha ilusión compartir
@@ -594,14 +544,17 @@ footer {
       <strong id="dias">0</strong>
       <span>Días</span>
     </div>
+
     <div class="unidad">
       <strong id="horas">0</strong>
       <span>Horas</span>
     </div>
+
     <div class="unidad">
       <strong id="minutos">0</strong>
       <span>Min</span>
     </div>
+
     <div class="unidad">
       <strong id="segundos">0</strong>
       <span>Seg</span>
@@ -612,7 +565,8 @@ footer {
 <footer>
   Con amor, Alejandro & Nikole
 </footer>
-  </div>
+
+</div>
 
 <script>
 const fechaEvento = new Date("2026-12-19T16:00:00-05:00").getTime();
@@ -638,7 +592,6 @@ function actualizarContador() {
     Math.floor((diferencia % 60000) / 1000);
 }
 
-
 actualizarContador();
 setInterval(actualizarContador, 1000);
 
@@ -653,7 +606,7 @@ function abrirInvitacion() {
     contenido.style.display = "block";
   }, 800);
 }
-  
+
 const URL_REGALOS = "https://script.google.com/macros/s/AKfycbyX69i5iykBvlKoaWIZnVsmYLyDbD7EwM0ewQZYSbPomv-phpyYGPUa1TFFyOYXevfG/exec";
 
 function cargarRegalos() {
@@ -751,8 +704,6 @@ async function confirmarRegalos() {
       "No se pudo enviar la solicitud. Inténtalo nuevamente.";
   }
 }
-
-
 </script>
 
 </body>
