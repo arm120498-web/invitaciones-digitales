@@ -169,10 +169,94 @@ footer {
   .contador { gap: 5px; }
   .unidad { min-width: 58px; padding: 12px 5px; }
 }
+  #sobreInicial {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 25px;
+  background: linear-gradient(145deg, #f8f6f1, #e9dfd1);
+  transition: opacity 0.8s ease;
+}
+
+.sobreTarjeta {
+  width: 100%;
+  max-width: 420px;
+  padding: 50px 25px;
+  background: #fffdf9;
+  border: 1px solid #c5ad89;
+  outline: 1px solid #c5ad89;
+  outline-offset: 6px;
+  text-align: center;
+}
+
+.sobreEtiqueta {
+  font: 10px Arial, sans-serif;
+  letter-spacing: 4px;
+  color: #a58b68;
+}
+
+.sobreIcono {
+  font-size: 65px;
+  color: #b69b72;
+  margin: 25px 0;
+}
+
+.sobreTarjeta h1 {
+  font-size: 30px;
+  font-weight: normal;
+  color: #806b54;
+  margin-bottom: 15px;
+}
+
+.sobreTarjeta p {
+  line-height: 1.8;
+}
+
+.sobreTarjeta button {
+  margin: 30px 0;
+  padding: 14px 30px;
+  border: none;
+  background: #8b765e;
+  color: white;
+  font-size: 13px;
+  letter-spacing: 1px;
+  cursor: pointer;
+}
+
+.sobreFirma {
+  font-style: italic;
+  color: #a58b68;
+}
+
+#contenidoInvitacion {
+  display: none;
+}
+
+#sobreInicial.cerrando {
+  opacity: 0;
+  pointer-events: none;
+}
 </style>
 </head>
 
 <body>
+
+<div id="sobreInicial">
+  <div class="sobreTarjeta">
+    <p class="sobreEtiqueta">UNA INVITACIÓN ESPECIAL</p>
+    <div class="sobreIcono">✉</div>
+    <h1>Para alguien especial</h1>
+    <p>Tenemos una sorpresa para compartir contigo.</p>
+    <button onclick="abrirInvitacion()">Abrir invitación</button>
+    <p class="sobreFirma">Con cariño, Alejandro & Nikole</p>
+  </div>
+</div>
+
+<div id="contenidoInvitacion">
+
 
 <section class="portada">
   <div class="marco">
@@ -234,6 +318,7 @@ footer {
 <footer>
   Con amor, Alejandro & Nikole
 </footer>
+  </div>
 
 <script>
 const fechaEvento = new Date("2026-12-19T16:00:00-05:00").getTime();
@@ -262,6 +347,17 @@ function actualizarContador() {
 actualizarContador();
 setInterval(actualizarContador, 1000);
 </script>
+  function abrirInvitacion() {
+  const sobre = document.getElementById("sobreInicial");
+  const contenido = document.getElementById("contenidoInvitacion");
+
+  sobre.classList.add("cerrando");
+
+  setTimeout(() => {
+    sobre.style.display = "none";
+    contenido.style.display = "block";
+  }, 800);
+}
 
 </body>
 </html>
