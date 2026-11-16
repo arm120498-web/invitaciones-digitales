@@ -239,6 +239,18 @@ footer {
   opacity: 0;
   pointer-events: none;
 }
+.video-seccion video {
+  display: block;
+  width: 100%;
+  max-width: 650px;
+  margin: 25px auto 0;
+  border-radius: 14px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+}
+
+.video-seccion p {
+  margin-bottom: 20px;
+}
 </style>
 </head>
 
@@ -280,6 +292,16 @@ footer {
       4:00 P. M.
     </p>
   </div>
+</section>
+
+<section class="seccion video-seccion">
+  <h2>Un momento muy especial</h2>
+  <p>Queremos compartir contigo cómo comenzó esta nueva aventura.</p>
+
+  <video controls playsinline preload="metadata">
+    <source src="anuncio.mp4" type="video/mp4">
+    Tu navegador no puede reproducir este video.
+  </video>
 </section>
 
 <section class="seccion">
