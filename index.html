@@ -2,265 +2,266 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Invitación especial</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Alejandro & Nikole | Baby Shower</title>
 
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+<style>
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
-    body {
-      font-family: Georgia, serif;
-      background: #f8f5f0;
-      color: #51483f;
-      text-align: center;
-    }
+body {
+  background: #f8f6f1;
+  color: #554b40;
+  font-family: Georgia, serif;
+  text-align: center;
+}
 
-    .portada {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      padding: 35px 20px;
-      background: linear-gradient(160deg, #f8f1e9, #e9ded2);
-    }
+.portada {
+  min-height: 100vh;
+  padding: 35px 22px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(145deg, #f8f6f1, #eee6da);
+}
 
-    .sobre {
-      max-width: 520px;
-      width: 100%;
-      padding: 45px 25px;
-      border: 1px solid #c6ad91;
-      background: rgba(255,255,255,0.55);
-      animation: aparecer 1.2s ease;
-    }
+.marco {
+  width: 100%;
+  max-width: 560px;
+  padding: 65px 25px;
+  border: 1px solid #c5ad89;
+  outline: 1px solid #c5ad89;
+  outline-offset: 7px;
+  background: rgba(255,255,255,0.35);
+  animation: entrada 1.5s ease;
+}
 
-    .detalle {
-      font-size: 13px;
-      letter-spacing: 4px;
-      text-transform: uppercase;
-      color: #9b8067;
-      margin-bottom: 25px;
-    }
+.etiqueta {
+  font-family: Arial, sans-serif;
+  font-size: 10px;
+  letter-spacing: 5px;
+  color: #a58b68;
+  text-transform: uppercase;
+  margin-bottom: 35px;
+}
 
-    h1 {
-      font-size: clamp(38px, 9vw, 58px);
-      font-weight: normal;
-      margin-bottom: 18px;
-    }
+.nombres {
+  font-size: clamp(35px, 8vw, 53px);
+  font-weight: normal;
+  color: #77634e;
+  margin-bottom: 25px;
+}
 
-    .subtitulo {
-      font-size: 18px;
-      line-height: 1.7;
-      margin-bottom: 30px;
-    }
+.nombres span {
+  color: #b69b72;
+  font-style: italic;
+}
 
-    .fecha {
-      font-size: 19px;
-      line-height: 1.8;
-      margin: 25px 0;
-    }
+.linea {
+  width: 55px;
+  height: 1px;
+  background: #b69b72;
+  margin: 25px auto;
+}
 
-    .seccion {
-      padding: 65px 20px;
-      max-width: 650px;
-      margin: auto;
-    }
+.frase {
+  font-size: 19px;
+  line-height: 1.8;
+  font-style: italic;
+  max-width: 340px;
+  margin: auto;
+}
 
-    h2 {
-      font-size: 30px;
-      font-weight: normal;
-      margin-bottom: 20px;
-    }
+.evento {
+  margin-top: 40px;
+  font-family: Arial, sans-serif;
+  font-size: 12px;
+  line-height: 2;
+  letter-spacing: 2px;
+  color: #8d7962;
+}
 
-    .contador {
-      display: flex;
-      justify-content: center;
-      gap: 12px;
-      margin: 30px 0;
-    }
+.seccion {
+  max-width: 650px;
+  margin: auto;
+  padding: 85px 22px;
+}
 
-    .unidad {
-      background: #eee4d9;
-      padding: 15px 10px;
-      min-width: 65px;
-      border-radius: 8px;
-    }
+.seccion h2 {
+  font-size: 30px;
+  font-weight: normal;
+  color: #806b54;
+  margin-bottom: 20px;
+}
 
-    .unidad strong {
-      display: block;
-      font-size: 25px;
-      font-weight: normal;
-    }
+.seccion p {
+  font-size: 16px;
+  line-height: 1.8;
+}
 
-    .unidad span {
-      font-size: 11px;
-      text-transform: uppercase;
-    }
+.contador {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 30px;
+}
 
-    .boton {
-      display: inline-block;
-      padding: 14px 25px;
-      margin: 10px 5px;
-      background: #8b7460;
-      color: white;
-      text-decoration: none;
-      border-radius: 30px;
-      font-family: Arial, sans-serif;
-      font-size: 14px;
-      transition: 0.3s;
-    }
+.unidad {
+  min-width: 65px;
+  padding: 15px 8px;
+  background: #eee7dd;
+  border: 1px solid #e2d6c6;
+}
 
-    .boton:hover {
-      background: #665342;
-      transform: translateY(-2px);
-    }
+.unidad strong {
+  display: block;
+  font-size: 25px;
+  font-weight: normal;
+  color: #806b54;
+}
 
-    .galeria {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 12px;
-      margin-top: 25px;
-    }
+.unidad span {
+  font: 10px Arial, sans-serif;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
 
-    .foto {
-      min-height: 150px;
-      border-radius: 8px;
-      background: #e9ded2;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      color: #8b7460;
-      font-family: Arial, sans-serif;
-      font-size: 13px;
-    }
+.boton {
+  display: inline-block;
+  margin: 18px 5px 0;
+  padding: 14px 25px;
+  background: #8b765e;
+  color: white;
+  text-decoration: none;
+  font: 12px Arial, sans-serif;
+  letter-spacing: 1px;
+  border-radius: 2px;
+}
 
-    footer {
-      padding: 30px;
-      background: #eee4d9;
-      font-size: 14px;
-    }
+.boton:hover {
+  background: #6e5943;
+}
 
-    @keyframes aparecer {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-  </style>
+footer {
+  padding: 35px 15px;
+  background: #eee7dd;
+  color: #8b765e;
+  font-size: 14px;
+  font-style: italic;
+}
+
+@keyframes entrada {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media(max-width: 390px) {
+  .contador { gap: 5px; }
+  .unidad { min-width: 58px; padding: 12px 5px; }
+}
+</style>
 </head>
 
 <body>
 
-  <section class="portada">
-    <div class="sobre">
-      <p class="detalle">Una celebración especial</p>
-      <h1>¡Baby Shower!</h1>
-      <p class="subtitulo">
-        Estamos felices de compartir contigo
-        la dulce espera de nuestro bebé.
-      </p>
-      <div class="fecha">
-        Sábado 19 de diciembre<br>
-        4:00 p. m.
-      </div>
-      <p>¡Nos encantará contar contigo!</p>
+<section class="portada">
+  <div class="marco">
+    <p class="etiqueta">Una celebración de amor</p>
+
+    <h1 class="nombres">
+      Alejandro <span>&</span> Nikole
+    </h1>
+
+    <div class="linea"></div>
+
+    <p class="frase">
+      Nuestra historia ahora tiene un nuevo capítulo
+    </p>
+
+    <div class="linea"></div>
+
+    <p class="evento">
+      BABY SHOWER<br>
+      SÁBADO 19 DE DICIEMBRE<br>
+      4:00 P. M.
+    </p>
+  </div>
+</section>
+
+<section class="seccion">
+  <h2>Una nueva ilusión</h2>
+  <p>
+    Estamos viviendo una de las etapas más bonitas
+    de nuestra historia y queremos compartir
+    esta felicidad contigo.
+  </p>
+</section>
+
+<section class="seccion">
+  <h2>La cuenta regresiva</h2>
+  <p>El momento de celebrar se acerca.</p>
+
+  <div class="contador">
+    <div class="unidad">
+      <strong id="dias">0</strong>
+      <span>Días</span>
     </div>
-  </section>
-
-  <section class="seccion">
-    <h2>La cuenta regresiva</h2>
-    <p>Falta muy poco para celebrar juntos.</p>
-
-    <div class="contador">
-      <div class="unidad">
-        <strong id="dias">0</strong>
-        <span>Días</span>
-      </div>
-      <div class="unidad">
-        <strong id="horas">0</strong>
-        <span>Horas</span>
-      </div>
-      <div class="unidad">
-        <strong id="minutos">0</strong>
-        <span>Minutos</span>
-      </div>
-      <div class="unidad">
-        <strong id="segundos">0</strong>
-        <span>Segundos</span>
-      </div>
+    <div class="unidad">
+      <strong id="horas">0</strong>
+      <span>Horas</span>
     </div>
-  </section>
-
-  <section class="seccion">
-    <h2>Un recuerdo especial</h2>
-    <p>Pronto compartiremos contigo algunas fotos de esta etapa tan bonita.</p>
-
-    <div class="galeria">
-      <div class="foto">Foto 1</div>
-      <div class="foto">Foto 2</div>
-      <div class="foto">Foto 3</div>
-      <div class="foto">Foto 4</div>
+    <div class="unidad">
+      <strong id="minutos">0</strong>
+      <span>Min</span>
     </div>
-  </section>
+    <div class="unidad">
+      <strong id="segundos">0</strong>
+      <span>Seg</span>
+    </div>
+  </div>
+</section>
 
-  <section class="seccion">
-    <h2>¿Nos acompañas?</h2>
-    <p>Confirma tu asistencia para poder esperarte.</p>
+<footer>
+  Con amor, Alejandro & Nikole
+</footer>
 
-    <a class="boton" id="confirmar" href="#" target="_blank">
-      Confirmar asistencia
-    </a>
+<script>
+const fechaEvento = new Date("2026-12-19T16:00:00-05:00").getTime();
 
-    <h2 style="margin-top:45px;">¿Cómo llegar?</h2>
-    <p>Pronto encontrarás aquí la ubicación del evento.</p>
+function actualizarContador() {
+  const diferencia = fechaEvento - Date.now();
 
-    <a class="boton" id="ubicacion" href="#" target="_blank">
-      Ver ubicación
-    </a>
-  </section>
+  if (diferencia <= 0) {
+    document.querySelector(".contador").innerHTML = "¡Llegó el gran día!";
+    return;
+  }
 
-  <footer>
-    Hecho con mucho cariño ❤️
-  </footer>
+  document.getElementById("dias").textContent =
+    Math.floor(diferencia / 86400000);
 
-  <script>
-    // CUENTA REGRESIVA
-    const fechaEvento = new Date("2026-12-19T16:00:00-05:00").getTime();
+  document.getElementById("horas").textContent =
+    Math.floor((diferencia % 86400000) / 3600000);
 
-    function actualizarContador() {
-      const diferencia = fechaEvento - Date.now();
+  document.getElementById("minutos").textContent =
+    Math.floor((diferencia % 3600000) / 60000);
 
-      if (diferencia <= 0) {
-        document.querySelector(".contador").innerHTML = "¡Llegó el gran día!";
-        return;
-      }
+  document.getElementById("segundos").textContent =
+    Math.floor((diferencia % 60000) / 1000);
+}
 
-      document.getElementById("dias").textContent =
-        Math.floor(diferencia / 86400000);
-
-      document.getElementById("horas").textContent =
-        Math.floor((diferencia % 86400000) / 3600000);
-
-      document.getElementById("minutos").textContent =
-        Math.floor((diferencia % 3600000) / 60000);
-
-      document.getElementById("segundos").textContent =
-        Math.floor((diferencia % 60000) / 1000);
-    }
-
-    actualizarContador();
-    setInterval(actualizarContador, 1000);
-
-    // PERSONALIZAREMOS ESTOS ENLACES DESPUÉS
-    document.getElementById("confirmar").href =
-      "https://wa.me/51999999999?text=Hola,%20confirmo%20mi%20asistencia";
-
-    document.getElementById("ubicacion").href =
-      "https://www.google.com/maps";
-  </script>
+actualizarContador();
+setInterval(actualizarContador, 1000);
+</script>
 
 </body>
 </html>
