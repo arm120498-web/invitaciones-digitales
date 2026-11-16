@@ -289,6 +289,87 @@ footer {
   }
 }
 
+/* SECCIÓN DE REGALOS */
+
+.regalos > p {
+  margin-bottom: 18px;
+}
+
+.lista-regalos {
+  margin: 35px auto;
+  max-width: 520px;
+  text-align: left;
+}
+
+.regalo-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  padding: 17px 12px;
+  border-bottom: 1px solid #e2d6c6;
+}
+
+.regalo-item label {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.regalo-item input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: #8b765e;
+  cursor: pointer;
+}
+
+.estado-regalo {
+  font: 10px Arial, sans-serif;
+  letter-spacing: 1px;
+  color: #8b765e;
+  white-space: nowrap;
+}
+
+.estado-regalo.reservado {
+  color: #a58b68;
+  font-weight: bold;
+}
+
+.reserva-regalos {
+  max-width: 420px;
+  margin: 30px auto 0;
+}
+
+.reserva-regalos input {
+  display: block;
+  width: 100%;
+  padding: 14px;
+  margin-bottom: 14px;
+  border: 1px solid #d8c9b5;
+  background: #fffdf9;
+  color: #554b40;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  border-radius: 3px;
+}
+
+.reserva-regalos input:focus {
+  outline: 1px solid #a58b68;
+}
+
+.reserva-regalos .boton {
+  border: none;
+  cursor: pointer;
+}
+
+#mensajeReserva {
+  margin-top: 18px;
+  font-size: 14px;
+  color: #806b54;
+}
+
 </style>
 </head>
 
@@ -360,6 +441,55 @@ footer {
     <img src="foto%20bebe.jpeg" alt="Nuestro bebé">
   </div>
 </section>
+  
+<section class="seccion regalos">
+  <h2>Un detalle para nuestro bebé</h2>
+
+  <p>
+    Estamos preparando con mucha ilusión la llegada de nuestro pequeño
+    y hemos elaborado una pequeña lista de cositas que nos serán
+    de mucha utilidad en esta nueva etapa.
+  </p>
+
+  <p>
+    Si deseas, puedes echarle un vistazo y elegir algún detalle de la lista.
+    Si te animas por alguno, te agradeceremos que nos indiques tu nombre
+    para poder organizarnos.
+  </p>
+
+  <p>
+    Y, por supuesto, cualquier detalle que nazca de tu corazón
+    será recibido con muchísimo cariño. Lo más importante para
+    nosotros es compartir este momento contigo. ❤️
+  </p>
+
+  <div id="listaRegalos" class="lista-regalos">
+    Cargando lista de regalos...
+  </div>
+
+  <div class="reserva-regalos">
+    <input
+      type="text"
+      id="nombreInvitado"
+      placeholder="Tu nombre"
+      autocomplete="name"
+    >
+
+    <input
+      type="tel"
+      id="telefonoInvitado"
+      placeholder="Tu teléfono (opcional)"
+      autocomplete="tel"
+    >
+
+    <button class="boton" onclick="confirmarRegalos()">
+      CONFIRMAR SELECCIÓN
+    </button>
+
+    <p id="mensajeReserva" aria-live="polite"></p>
+  </div>
+</section>
+
   <section class="seccion">
   <h2>¿Dónde nos encontramos?</h2>
   <p>
@@ -460,6 +590,105 @@ function abrirInvitacion() {
     contenido.style.display = "block";
   }, 800);
 }
+  
+const URL_REGALOS = "https://script.google.com/macros/s/AKfycbyX69i5iykBvlKoaWIZnVsmYLyDbD7EwM0ewQZYSbPomv-phpyYGPUa1TFFyOYXevfG/exec";
+
+function cargarRegalos() {
+  const callback = "mostrarRegalos";
+  const script = document.createElement("script");
+
+  window[callback] = function(regalos) {
+    const lista = document.getElementById("listaRegalos");
+
+    lista.innerHTML = "";
+
+    regalos.forEach(regalo => {
+      const item = document.createElement("div");
+      item.className = "regalo-item";
+
+      const disponible = regalo.estado === "Disponible";
+
+      item.innerHTML = `
+        <label>
+          <input
+            type="checkbox"
+            value="${regalo.id}"
+            ${disponible ? "" : "disabled"}
+          >
+          ${regalo.regalo}
+        </label>
+        <span class="estado-regalo ${disponible ? "" : "reservado"}">
+          ${regalo.estado}
+        </span>
+      `;
+
+      lista.appendChild(item);
+    });
+
+    delete window[callback];
+    script.remove();
+  };
+
+  script.src = URL_REGALOS + "?callback=" + callback;
+  document.body.appendChild(script);
+}
+
+cargarRegalos();
+
+async function confirmarRegalos() {
+  const nombre = document.getElementById("nombreInvitado").value.trim();
+  const telefono = document.getElementById("telefonoInvitado").value.trim();
+  const mensaje = document.getElementById("mensajeReserva");
+
+  const seleccionados = [
+    ...document.querySelectorAll(
+      '#listaRegalos input[type="checkbox"]:checked'
+    )
+  ].map(input => input.value);
+
+  if (!nombre) {
+    mensaje.textContent = "Por favor, ingresa tu nombre.";
+    return;
+  }
+
+  if (seleccionados.length === 0) {
+    mensaje.textContent = "Selecciona al menos un regalo.";
+    return;
+  }
+
+  mensaje.textContent = "Enviando tu reserva...";
+
+  try {
+    await fetch(URL_REGALOS, {
+      method: "POST",
+      mode: "no-cors",
+      body: new URLSearchParams({
+        payload: JSON.stringify({
+          nombre: nombre,
+          telefono: telefono,
+          ids: seleccionados
+        })
+      })
+    });
+
+    mensaje.textContent =
+      "Solicitud enviada. Estamos actualizando la lista de regalos.";
+
+    document.getElementById("nombreInvitado").value = "";
+    document.getElementById("telefonoInvitado").value = "";
+
+    document.querySelectorAll(
+      '#listaRegalos input[type="checkbox"]:checked'
+    ).forEach(input => input.checked = false);
+
+    cargarRegalos();
+
+  } catch (error) {
+    mensaje.textContent =
+      "No se pudo enviar la solicitud. Inténtalo nuevamente.";
+  }
+}
+
 
 </script>
 
